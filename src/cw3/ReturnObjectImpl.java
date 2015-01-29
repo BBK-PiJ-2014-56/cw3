@@ -1,24 +1,48 @@
 package cw3;
 
-public class ReturnObjectImpl implements ReturnObject {
+
+public class ReturnObjectImpl implements ReturnObject{
     /**
      * Returns whether there has been an error
      * @return whether there has been an error
      */
-    public boolean hasError();
+    private boolean error;
+    private Object obj;
+    private ErrorMessage errorDet;
+
+    public ReturnObjectImpl () {
+        this.obj = null;
+        this.error = false;
+        this.errorDet = null;
+    }
+
+    public void setObj(Object obj) {
+        this.obj = obj;
+    }
+
+    public void setError(ErrorMessage ED) {
+        error = true;
+        errorDet = ED;
+    }
+
+    public boolean hasError() {
+        if (error == true){
+            return true ;
+        } else {
+            return false;
+        }
+
+    }
+    public ErrorMessage getError() {
+        if (hasError() == false) {
+            return ErrorMessage.NO_ERROR;
+        } else {
+            return errorDet;
+        }
+    }
 
     /**
-     * Returns the error message.
-     *
-     * This method must return NO_ERROR if and only if
-     * {@hasError} returns false.
-     *
-     * @return the error message
-     */
-    public ErrorMessage getError();
-
-    /**
-     * Returns the object wrapped in this cw3.ReturnObject, i.e. the
+     * Returns the object wrapped in this ReturnObject, i.e. the
      * result of the operation if it was successful, or null if
      * there has been error.
      *
@@ -30,5 +54,12 @@ public class ReturnObjectImpl implements ReturnObject {
      * @return the return value from the method or null if there has been an
      *         error
      */
-    public Object getReturnValue();
+    public Object getReturnValue() {
+        if (hasError() == true) {
+            return null;
+        } else {
+            return obj;
+        }
+    }
+
 }

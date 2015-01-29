@@ -3,6 +3,7 @@ package cw3;
 /**
  * Created by jimjohn_thornton on 24/01/15.
  */
+
 import org.junit.*;
 
 import static org.junit.Assert.*;
