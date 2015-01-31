@@ -11,14 +11,19 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
 
     @Override
     public FunctionalList rest() {
-        FunctionalList FLL = new FunctionalLinkedList();
+
         if (isEmpty()) {
             return null;
         } else {
-            remove(0);
+            FunctionalList FLL = new FunctionalLinkedList();
+            //remove(0);
             //FunctionalList noHead = new FunctionalArrayList();
-            for (int i = 1; i < size(); i++)
+            for (int i = 1; i < size(); i++) {
+                //FLL.add(get(1).getReturnValue());
                 FLL.add(get(i).getReturnValue());
+                //System.out.println(FLL.get(i).getReturnValue());
+
+            }
             return FLL;
         }
     }

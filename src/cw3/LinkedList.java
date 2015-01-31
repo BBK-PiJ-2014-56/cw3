@@ -41,9 +41,7 @@ public class LinkedList implements List{ //extends ArrayList
     @Override
     public int size() {
         int i = 0;
-        if (isEmpty()) {
-
-        } else {
+        if (!isEmpty()) {
             i = 1;
             Node temp = head;
             while (temp.next != null) {
@@ -87,10 +85,10 @@ public class LinkedList implements List{ //extends ArrayList
         } else {
             if (index == 0 && size() >= 1) {
                 //currentindex--;
-                System.out.println(head.data);
+                //System.out.println(head.data);
                 //System.out.println(head.next);
                 head = head.next;
-                System.out.println(head);
+                //System.out.println(head);
                 //if (size() == 0) {
                 //    rtn.setObj(null);
                 //} //else {
