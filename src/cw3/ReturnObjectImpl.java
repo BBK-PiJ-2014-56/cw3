@@ -26,15 +26,14 @@ public class ReturnObjectImpl implements ReturnObject{
     }
 
     public boolean hasError() {
-        if (error == true){
-            return true ;
-        } else {
+        if (error) return true;
+        else {
             return false;
         }
 
     }
     public ErrorMessage getError() {
-        if (hasError() == false) {
+        if (!hasError()) {
             return ErrorMessage.NO_ERROR;
         } else {
             return errorDet;
@@ -55,7 +54,7 @@ public class ReturnObjectImpl implements ReturnObject{
      *         error
      */
     public Object getReturnValue() {
-        if (hasError() == true) {
+        if (hasError()) {
             return null;
         } else {
             return obj;

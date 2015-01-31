@@ -19,9 +19,8 @@ public class ArrayList implements List{
      * @return true if the list is empty, false otherwise.
      */
     public boolean isEmpty() {
-        if (size() == 0) {
-            return true;
-        } else {
+        if (size() == 0) return true;
+        else {
             return false;
         }
     }
@@ -47,7 +46,7 @@ public class ArrayList implements List{
      */
     public ReturnObject get(int index) {
         ReturnObjectImpl rtn = new ReturnObjectImpl();
-        if (isEmpty() == true) {
+        if (isEmpty()) {
             rtn.setError(ErrorMessage.EMPTY_STRUCTURE);
         } else if(index < 0 || index >= size()) {
             rtn.setError(ErrorMessage.INDEX_OUT_OF_BOUNDS);
