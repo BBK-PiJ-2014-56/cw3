@@ -41,7 +41,13 @@ public class StackImpl extends AbstractStack implements Stack{
 
     @Override
     public ReturnObject top() {
-        return internalList.get(0);
+        if (top() == null) {
+            ReturnObjectImpl rtn = (ReturnObjectImpl) get(0);
+            rtn.setError(ErrorMessage.EMPTY_STRUCTURE);
+            return rtn;
+        } else {
+            return internalList.get(0);
+        }
     }
 
     @Override
