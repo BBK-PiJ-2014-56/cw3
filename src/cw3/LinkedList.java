@@ -7,7 +7,6 @@ package cw3;
 public class LinkedList implements List{ //extends ArrayList
 
     private Node head;
-    //private int currentindex = 0;
 
     private static class Node
     {
@@ -19,9 +18,6 @@ public class LinkedList implements List{ //extends ArrayList
             this.data = data;
             this.next = next;
         }
-        //public java.lang.Object getData(Node) {
-
-        //}
     }
 
     public LinkedList() {
@@ -30,12 +26,7 @@ public class LinkedList implements List{ //extends ArrayList
 
     @Override
     public boolean isEmpty() {
-        if (head == null){
-            return true;
-        } else {
-            return false;
-        }
-        //return head == null;
+        return head == null;
     }
 
     @Override
@@ -50,7 +41,6 @@ public class LinkedList implements List{ //extends ArrayList
             }
         }
     return i;
-        //return currentindex;
     }
 
     @Override
@@ -59,10 +49,8 @@ public class LinkedList implements List{ //extends ArrayList
         if (isEmpty()) {
             rtn.setError(ErrorMessage.EMPTY_STRUCTURE);
         } else if(index < 0 || index >= size()) {
-            //System.out.println("wrong index");
             rtn.setError(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else {
-            //System.out.println("get shit");
             Node tmp = head;
             for (int i = 0; i<index; i++) {
                 //iterate through list, index number of times return that object
@@ -84,48 +72,17 @@ public class LinkedList implements List{ //extends ArrayList
             rtn.setError(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else {
             if (index == 0 && size() >= 1) {
-                //currentindex--;
-                //System.out.println(head.data);
-                //System.out.println(head.next);
-                head = head.next;
-                //System.out.println(head);
-                //if (size() == 0) {
-                //    rtn.setObj(null);
-                //} //else {
-                    //rtn.setObj(head.data);
-                //}
-            } else {
-                //currentindex--;
-                //rtn.setObj(item);
-                Node prevtmp = head;
-                //System.out.println(prevtmp.data);
-                for (int i = 0; i <= index - 2; i++) {
-                    //iterate through list, index number of times return that object
-                    prevtmp = prevtmp.next;
-                    //System.out.println(prevtmp.data);
-                }
-
-                //prevtmp.next = prevtmp;
-                Node nexttmp = prevtmp.next;
-                        prevtmp.next = nexttmp.next;
-                /*if (prevtmp.next == null) {
-                    //nexttmp = null;
-                    System.out.println(size());
-                    head = null;
-                    rtn.setObj(null);
-                } else {
-                    nexttmp = prevtmp.next.next;
-                    //prevtmp.next = prevtmp.next.next; //nexttmp;
-                    //iterate through list, index number of times return that object
-                    //prevtmp = prevtmp.next;
-
-                    //prevtmp.next = prevtmp.next.next; //nexttmp;
-
-
-                    //System.out.println(nexttmp.data);
-                    //rtn.setObj(tmp.data);
-                }*/
                 rtn.setObj(head.data);
+                head = head.next;
+            } else {
+                Node prevtmp = head;
+                for (int i = 0; i <= index - 2; i++) {
+                    //iterate through list until you get to the object before the index and link it to the end of
+                    prevtmp = prevtmp.next;
+                }
+                Node nexttmp = prevtmp.next;
+                prevtmp.next = nexttmp.next;
+                rtn.setObj(prevtmp.next);
             }
         }
 
@@ -141,13 +98,9 @@ public class LinkedList implements List{ //extends ArrayList
             if ((isEmpty() && index > 0) || index > size() || index < 0) {
                 rtn.setError(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             } else if (index == 0) {
-                //currentindex++;
-                //Node tmp = head;
-                //tmp.next = head;
                 rtn.setObj(item);
                 head = new Node(item, head);
             } else {
-                //currentindex++;
                 rtn.setObj(item);
                 Node tmp = head;
                 for (int i = 0; i < index-1; i++) {
@@ -167,18 +120,14 @@ public class LinkedList implements List{ //extends ArrayList
             rtn.setError(ErrorMessage.INVALID_ARGUMENT);
         } else {
             rtn.setObj(item);
-
-            //currentindex++;
             if (isEmpty()) {
                 head = new Node(item, head);
-
             } else {
                 Node tmp = head;
                 while (tmp.next != null) {
                     tmp = tmp.next;
                 }
                 tmp.next = new Node(item, null);
-
             }
         }
         return rtn;

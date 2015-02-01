@@ -20,14 +20,8 @@ public class LinkedListTest {
     public void isEmptyTest() {
         assertEquals(true, LL1.isEmpty());
         LL1.add(3);
-        //System.out.println(LL1.size());
         assertEquals(false, LL1.isEmpty());
-        //System.out.println(LL1.size());
         LL1.remove(0);
-        //System.out.println(LL1.size());
-        //System.out.println(LL1.get(0).getReturnValue());
-        //System.out.println(LL1.size());
-        //System.out.println(LL1.get(0).getReturnValue());
         assertEquals(true, LL1.isEmpty());
     }
 
@@ -38,16 +32,12 @@ public class LinkedListTest {
 
     @Test
     public void sizeTest() {
-        //System.out.println(LL1.size());
         assertEquals(0, LL1.size());
         LL1.add(3);
-        //System.out.println(LL1.size());
         assertEquals(1, LL1.size());
         LL1.add(3);
-        //System.out.println(LL1.size());
         assertEquals(2, LL1.size());
         LL1.remove(0);
-        //System.out.println(LL1.size());
         assertEquals(1, LL1.size());
     }
 
@@ -63,9 +53,8 @@ public class LinkedListTest {
 
     @Test
     public void AddTest() {
-        System.out.println(LL1.isEmpty());
-        //assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, LL1.add(0,"index too big").getError());
 
+        assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, LL1.add(1,"index too big").getError());
         //testing basic add at end of array
         LL1.add(3);
         LL1.add("stinky");
@@ -89,12 +78,10 @@ public class LinkedListTest {
 		/*tests out of bounds conditions note that you can insert an object into position 5 of an
 		array of 4 elements as that will then be the same as adding an object to the end of the
 		array*/
-        //System.out.println(LL1.size());
         assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, LL1.add(6,"index too big").getError());
         assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, LL1.add(-1,"index too small").getError());
         //testing adding a number into the beginning of the array
         LL1.add(0,"start");
-        //System.out.println(LL1.size());
         assertEquals("start", LL1.get(0).getReturnValue());
         assertEquals(3, LL1.get(1).getReturnValue());
         assertEquals(4, LL1.get(2).getReturnValue());
@@ -114,11 +101,9 @@ public class LinkedListTest {
 
     @Test
     public void removeTest() {
-        //System.out.println(LL1.isEmpty());
+
         assertEquals(ErrorMessage.EMPTY_STRUCTURE, LL1.remove(0).getError());
         System.out.println(LL1.size());
-        //assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, LL1.remove(1).getError());
-        //assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, LL1.remove(-1).getError());
         LL1.add("stinky");
         LL1.add("poopie");
         LL1.add("poos");
@@ -141,16 +126,6 @@ public class LinkedListTest {
         assertEquals(ErrorMessage.EMPTY_STRUCTURE, LL1.get(0).getError());
         assertEquals(0, LL1.size());
     }
-
-    /*@Test
-    public void extendArrayTest() {
-        assertEquals(0, LL1.size());
-        LL1.extendArray();
-        assertEquals(1, LL1.size());
-        LL1.extendArray();
-        assertEquals(2, LL1.size());
-    }*/
-
 }
 
 
