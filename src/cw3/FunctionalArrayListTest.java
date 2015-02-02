@@ -41,9 +41,9 @@ public class FunctionalArrayListTest {
     @Test
     public void getTest() {
         assertEquals(ErrorMessage.EMPTY_STRUCTURE, FA1.get(0).getError());
-        FA1.add("poopie");
-        FA1.add("poos");
-        assertEquals("poopie", FA1.get(0).getReturnValue());
+        FA1.add("things");
+        FA1.add("morethings");
+        assertEquals("things", FA1.get(0).getReturnValue());
         assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, FA1.get(2).getError());
         assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, FA1.get(-1).getError());
     }
@@ -51,13 +51,13 @@ public class FunctionalArrayListTest {
     public void AddTest() {
         //testing basic add at end of array
         FA1.add(3);
-        FA1.add("stinky");
-        FA1.add("poopie");
-        FA1.add("poos");
+        FA1.add("evenmorethings");
+        FA1.add("things");
+        FA1.add("morethings");
         assertEquals(3, FA1.get(0).getReturnValue());
-        assertEquals("stinky", FA1.get(1).getReturnValue());
-        assertEquals("poopie", FA1.get(2).getReturnValue());
-        assertEquals("poos", FA1.get(3).getReturnValue());
+        assertEquals("evenmorethings", FA1.get(1).getReturnValue());
+        assertEquals("things", FA1.get(2).getReturnValue());
+        assertEquals("morethings", FA1.get(3).getReturnValue());
         assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, FA1.get(4).getError());
         assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, FA1.get(-1).getError());
         assertEquals(ErrorMessage.INVALID_ARGUMENT, FA1.add(null).getError());
@@ -65,9 +65,9 @@ public class FunctionalArrayListTest {
         FA1.add(1,4);
         assertEquals(3, FA1.get(0).getReturnValue());
         assertEquals(4, FA1.get(1).getReturnValue());
-        assertEquals("stinky", FA1.get(2).getReturnValue());
-        assertEquals("poopie", FA1.get(3).getReturnValue());
-        assertEquals("poos", FA1.get(4).getReturnValue());
+        assertEquals("evenmorethings", FA1.get(2).getReturnValue());
+        assertEquals("things", FA1.get(3).getReturnValue());
+        assertEquals("morethings", FA1.get(4).getReturnValue());
     /*tests out of bounds conditions note that you can insert an object into position 5 of an
     array of 4 elements as that will then be the same as adding an object to the end of the
     array*/
@@ -78,17 +78,17 @@ public class FunctionalArrayListTest {
         assertEquals("start", FA1.get(0).getReturnValue());
         assertEquals(3, FA1.get(1).getReturnValue());
         assertEquals(4, FA1.get(2).getReturnValue());
-        assertEquals("stinky", FA1.get(3).getReturnValue());
-        assertEquals("poopie", FA1.get(4).getReturnValue());
-        assertEquals("poos", FA1.get(5).getReturnValue());
+        assertEquals("evenmorethings", FA1.get(3).getReturnValue());
+        assertEquals("things", FA1.get(4).getReturnValue());
+        assertEquals("morethings", FA1.get(5).getReturnValue());
         //testing adding a number into the end of the array
         FA1.add(6,"end");
         assertEquals("start", FA1.get(0).getReturnValue());
         assertEquals(3, FA1.get(1).getReturnValue());
         assertEquals(4, FA1.get(2).getReturnValue());
-        assertEquals("stinky", FA1.get(3).getReturnValue());
-        assertEquals("poopie", FA1.get(4).getReturnValue());
-        assertEquals("poos", FA1.get(5).getReturnValue());
+        assertEquals("evenmorethings", FA1.get(3).getReturnValue());
+        assertEquals("things", FA1.get(4).getReturnValue());
+        assertEquals("morethings", FA1.get(5).getReturnValue());
         assertEquals("end", FA1.get(6).getReturnValue());
     }
     @Test
@@ -96,22 +96,22 @@ public class FunctionalArrayListTest {
         assertEquals(ErrorMessage.EMPTY_STRUCTURE, FA1.remove(0).getError());
         //assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, FA1.remove(1).getError());
         //assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, FA1.remove(-1).getError());
-        FA1.add("stinky");
-        FA1.add("poopie");
-        FA1.add("poos");
-        assertEquals("stinky", FA1.get(0).getReturnValue());
-        assertEquals("poopie", FA1.get(1).getReturnValue());
-        assertEquals("poos", FA1.get(2).getReturnValue());
+        FA1.add("evenmorethings");
+        FA1.add("things");
+        FA1.add("morethings");
+        assertEquals("evenmorethings", FA1.get(0).getReturnValue());
+        assertEquals("things", FA1.get(1).getReturnValue());
+        assertEquals("morethings", FA1.get(2).getReturnValue());
         //Test remove from middle
         FA1.remove(1);
-        assertEquals("stinky", FA1.get(0).getReturnValue());
-        assertEquals("poos", FA1.get(1).getReturnValue());
+        assertEquals("evenmorethings", FA1.get(0).getReturnValue());
+        assertEquals("morethings", FA1.get(1).getReturnValue());
         assertEquals(2, FA1.size());
         assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, FA1.get(2).getError());
         assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, FA1.get(-1).getError());
         //Tests remove from end
         FA1.remove(1);
-        assertEquals("stinky", FA1.get(0).getReturnValue());
+        assertEquals("evenmorethings", FA1.get(0).getReturnValue());
         assertEquals(1, FA1.size());
         //Tests removing last element
         FA1.remove(0);
@@ -132,11 +132,11 @@ public class FunctionalArrayListTest {
         assertEquals(ErrorMessage.EMPTY_STRUCTURE, FA1.head().getError());
         FA1.add(3);
         assertEquals(3, FA1.head().getReturnValue());
-        FA1.add("stinky");
+        FA1.add("evenmorethings");
         assertEquals(3, FA1.head().getReturnValue());
-        FA1.add("poopie");
+        FA1.add("things");
         assertEquals(3, FA1.head().getReturnValue());
-        FA1.add("poos");
+        FA1.add("morethings");
         assertEquals(3, FA1.head().getReturnValue());
     }
     @Test
@@ -145,15 +145,15 @@ public class FunctionalArrayListTest {
         //assertEquals(ErrorMessage.EMPTY_STRUCTURE, FA1.rest().getError());
         FA1.add(3);
         assertEquals(null, FA1.rest().get(0).getReturnValue());
-        FA1.add("stinky");
-        assertEquals("stinky", FA1.rest().get(0).getReturnValue());
-        FA1.add("poopie");
-        assertEquals("stinky", FA1.rest().get(0).getReturnValue());
-        assertEquals("poopie", FA1.rest().get(1).getReturnValue());
-        FA1.add("poos");
-        assertEquals("stinky", FA1.rest().get(0).getReturnValue());
-        assertEquals("poopie", FA1.rest().get(1).getReturnValue());
-        assertEquals("poos", FA1.rest().get(2).getReturnValue());
+        FA1.add("evenmorethings");
+        assertEquals("evenmorethings", FA1.rest().get(0).getReturnValue());
+        FA1.add("things");
+        assertEquals("evenmorethings", FA1.rest().get(0).getReturnValue());
+        assertEquals("things", FA1.rest().get(1).getReturnValue());
+        FA1.add("morethings");
+        assertEquals("evenmorethings", FA1.rest().get(0).getReturnValue());
+        assertEquals("things", FA1.rest().get(1).getReturnValue());
+        assertEquals("morethings", FA1.rest().get(2).getReturnValue());
         assertEquals(null, FA1.rest().get(4).getReturnValue());
     }
 }
