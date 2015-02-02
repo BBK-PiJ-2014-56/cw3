@@ -1,8 +1,9 @@
 package cw3;
 
 /**
- * Created by jimjohn_thornton on 31/01/15.
+ * @author James Thornton
  */
+
 public class StackImpl extends AbstractStack implements Stack{
     public StackImpl(List list) {
         super(list);
@@ -41,7 +42,7 @@ public class StackImpl extends AbstractStack implements Stack{
 
     @Override
     public ReturnObject top() {
-        if (top() == null) {
+        if (isEmpty()) {
             ReturnObjectImpl rtn = (ReturnObjectImpl) get(0);
             rtn.setError(ErrorMessage.EMPTY_STRUCTURE);
             return rtn;

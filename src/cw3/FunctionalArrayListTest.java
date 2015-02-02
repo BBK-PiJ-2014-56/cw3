@@ -6,8 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by jimjohn_thornton on 31/01/15.
+ * @author James Thornton
  */
+
 public class FunctionalArrayListTest {
     FunctionalArrayList FA1;
     @Before

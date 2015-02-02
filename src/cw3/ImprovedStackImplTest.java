@@ -6,8 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by jimjohn_thornton on 01/02/15.
+ * @author James Thornton
  */
+
 public class ImprovedStackImplTest {
     ImprovedStackImpl SA;
     ImprovedStackImpl SL;
@@ -132,24 +133,37 @@ public class ImprovedStackImplTest {
     public void reverseTest() {
         assertEquals(ErrorMessage.EMPTY_STRUCTURE, SA.pop().getError());
         assertEquals(ErrorMessage.EMPTY_STRUCTURE, SL.pop().getError());
-        SA.push(1);
         SA.push("a");
-        SA.push(3);
-        SA.push("a");
-        SA.reverse();
-        assertEquals(1, SA.pop().getReturnValue());
-        assertEquals("a", SA.pop().getReturnValue());
-        assertEquals(3, SA.pop().getReturnValue());
-        assertEquals("a", SA.pop().getReturnValue());
-        SL.push(1);
+        SA.push("b");
+        SA.push("c");
+        SA.push("d");
+        SA.push("e");
+        SA.push("f");
+        SA.push("g");
+        ImprovedStack backwards = SA.reverse();
+        assertEquals("a", backwards.pop().getReturnValue());
+        assertEquals("b", backwards.pop().getReturnValue());
+        assertEquals("c", backwards.pop().getReturnValue());
+        assertEquals("d", backwards.pop().getReturnValue());
+        assertEquals("e", backwards.pop().getReturnValue());
+        assertEquals("f", backwards.pop().getReturnValue());
+        assertEquals("g", backwards.pop().getReturnValue());
         SL.push("a");
-        SL.push(3);
-        SL.push("a");
-        SL.reverse();
-        assertEquals(1, SL.pop().getReturnValue());
-        assertEquals("a", SL.pop().getReturnValue());
-        assertEquals(3, SL.pop().getReturnValue());
-        assertEquals("a", SL.pop().getReturnValue());
+        SL.push("b");
+        SL.push("c");
+        SL.push("d");
+        SL.push("e");
+        SL.push("f");
+        SL.push("g");
+        ImprovedStack backwardsSL = SL.reverse();
+        assertEquals("a", backwardsSL.pop().getReturnValue());
+        assertEquals("b", backwardsSL.pop().getReturnValue());
+        assertEquals("c", backwardsSL.pop().getReturnValue());
+        assertEquals("d", backwardsSL.pop().getReturnValue());
+        assertEquals("e", backwardsSL.pop().getReturnValue());
+        assertEquals("f", backwardsSL.pop().getReturnValue());
+        assertEquals("g", backwardsSL.pop().getReturnValue());
+
     }
 }
 

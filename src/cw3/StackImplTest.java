@@ -6,8 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by jimjohn_thornton on 01/02/15.
+ * @author James Thornton
  */
+
 public class StackImplTest {
     StackImpl SA;
     StackImpl SL;

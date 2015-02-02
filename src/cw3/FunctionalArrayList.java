@@ -1,8 +1,9 @@
 package cw3;
 
 /**
- * Created by jimjohn_thornton on 31/01/15.
+ * @author James Thornton
  */
+
 public class FunctionalArrayList extends ArrayList implements FunctionalList {
     @Override
     public ReturnObject head() {

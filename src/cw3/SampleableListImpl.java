@@ -1,8 +1,9 @@
 package cw3;
 
 /**
- * Created by jimjohn_thornton on 31/01/15.
+ * @author James Thornton
  */
+
 public class SampleableListImpl extends FunctionalLinkedList implements SampleableList {
     @Override
     public SampleableList sample() {

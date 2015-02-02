@@ -1,14 +1,14 @@
 package cw3;
 
+/**
+ * @author James Thornton
+ */
 
 public class ReturnObjectImpl implements ReturnObject{
-    /**
-     * Returns whether there has been an error
-     * @return whether there has been an error
-     */
     private boolean error;
     private Object obj;
     private ErrorMessage errorDet;
+
 
     public ReturnObjectImpl () {
         this.obj = null;
@@ -16,22 +16,37 @@ public class ReturnObjectImpl implements ReturnObject{
         this.errorDet = null;
     }
 
+    /**
+     * Setter
+     * @param obj sets object
+     */
     public void setObj(Object obj) {
         this.obj = obj;
     }
 
+    /**
+     * sets error
+     * @param ED sets error details
+     */
     public void setError(ErrorMessage ED) {
         error = true;
         errorDet = ED;
     }
-
+    /**
+     * Returns whether there has been an error
+     * @return whether there has been an error
+     */
     public boolean hasError() {
-        if (error) return true;
-        else {
-            return false;
-        }
-
+        return error;
     }
+    /**
+     * Returns the error message.
+     *
+     * This method must return NO_ERROR if and only if
+     * {@hasError} returns false.
+     *
+     * @return the error message
+     */
     public ErrorMessage getError() {
         if (!hasError()) {
             return ErrorMessage.NO_ERROR;

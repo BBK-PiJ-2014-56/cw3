@@ -1,7 +1,7 @@
 package cw3;
 
 /**
- * Created by jimjohn_thornton on 24/01/15.
+ * @author James Thornton
  */
 
 import org.junit.*;

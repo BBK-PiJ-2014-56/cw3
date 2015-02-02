@@ -1,9 +1,11 @@
 package cw3;
 
 /**
- * Created by jimjohn_thornton on 31/01/15.
+ * @author James Thornton
  */
+
 public class FunctionalLinkedList extends LinkedList implements FunctionalList {
+
     @Override
     public ReturnObject head() {
         return get(0);

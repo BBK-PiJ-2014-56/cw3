@@ -1,8 +1,9 @@
 package cw3;
 
 /**
- * Created by jimjohn_thornton on 01/02/15.
+ * @author James Thornton
  */
+
 public class ImprovedStackImpl implements ImprovedStack {
 
     private List internalList;
@@ -14,13 +15,14 @@ public class ImprovedStackImpl implements ImprovedStack {
     public ImprovedStack reverse() {
         ImprovedStackImpl reverseList = new ImprovedStackImpl(new ArrayList());
         for (int i=0; i < size(); i++) {
-            reverseList.push(pop());
+            reverseList.push(internalList.get(i).getReturnValue());
         }
         return reverseList;
     }
 
     @Override
     public void remove(Object object) {
+
         for (int i=0; i < size(); i++) {
             Object listObject = internalList.get(i).getReturnValue();
             if (object.equals(listObject)) {

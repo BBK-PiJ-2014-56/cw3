@@ -1,7 +1,8 @@
 package cw3;
 
 /**
- * Created by jimjohn_thornton on 24/01/15.
+ *
+ * @author James Thornton
  */
 
 public class ArrayList implements List{
@@ -9,20 +10,14 @@ public class ArrayList implements List{
     public ArrayList() {
         AL = new Object[0];
     }
-	/*
-	public ArrayList(int index) {
-		AL = new Object[index];
-	}*/
+
     /**
      * Returns true if the list is empty, false otherwise.
      *
      * @return true if the list is empty, false otherwise.
      */
     public boolean isEmpty() {
-        if (size() == 0) return true;
-        else {
-            return false;
-        }
+        return size() == 0;
     }
 
     /**
@@ -146,6 +141,10 @@ public class ArrayList implements List{
         }
         return rtn;
     }
+
+    /**
+     * Extends the size of the Array
+     */
     public void extendArray() {
         int index = size();
         Object[] temp = new Object[index + 1];
@@ -153,12 +152,6 @@ public class ArrayList implements List{
             temp[i] = AL[i];
         }
         AL = temp;
-    }
-    public void viewArray() {
-        for(int i =0; i< AL.length;i++){
-            System.out.println(i + ":" + AL[i]);
-        }
-        System.out.println("");
     }
 }
 
