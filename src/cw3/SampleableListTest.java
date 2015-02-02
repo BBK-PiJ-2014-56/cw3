@@ -15,13 +15,10 @@ public class SampleableListTest {
     private SampleableList SFLL1;
     private SampleableList SFAL1;
 
-    public SampleableListTest() {
-        SFLL1 = new SampleableListImpl(new FunctionalLinkedList());
-        SFAL1 = new SampleableListImpl(new FunctionalArrayList());
-    }
-
     @Before
     public void setUp(){
+        SFLL1 = new SampleableListImpl(new FunctionalLinkedList());
+        SFAL1 = new SampleableListImpl(new FunctionalArrayList());
     }
 
     @Test
