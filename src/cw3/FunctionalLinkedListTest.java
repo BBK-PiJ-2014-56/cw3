@@ -22,9 +22,7 @@ public class FunctionalLinkedListTest {
         assertEquals(true, FLL1.isEmpty());
         FLL1.add(3);
         assertEquals(false, FLL1.isEmpty());
-        //System.out.println(FLL1.size());
         FLL1.remove(0);
-        //System.out.println(FLL1.size());
         assertEquals(true, FLL1.isEmpty());
     }
 
@@ -35,16 +33,12 @@ public class FunctionalLinkedListTest {
 
     @Test
     public void sizeTest() {
-        //System.out.println(FLL1.size());
         assertEquals(0, FLL1.size());
         FLL1.add(3);
-        //System.out.println(FLL1.size());
         assertEquals(1, FLL1.size());
         FLL1.add(3);
-        //System.out.println(FLL1.size());
         assertEquals(2, FLL1.size());
         FLL1.remove(0);
-        //System.out.println(FLL1.size());
         assertEquals(1, FLL1.size());
     }
 
@@ -60,8 +54,6 @@ public class FunctionalLinkedListTest {
 
     @Test
     public void AddTest() {
-        //assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, FLL1.add(0,"index too big").getError());
-
         //testing basic add at end of array
         FLL1.add(3);
         FLL1.add("stinky");
@@ -85,12 +77,10 @@ public class FunctionalLinkedListTest {
 		/*tests out of bounds conditions note that you can insert an object into position 5 of an
 		array of 4 elements as that will then be the same as adding an object to the end of the
 		array*/
-        //System.out.println(FLL1.size());
         assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, FLL1.add(6,"index too big").getError());
         assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, FLL1.add(-1,"index too small").getError());
         //testing adding a number into the beginning of the array
         FLL1.add(0,"start");
-        //System.out.println(FLL1.size());
         assertEquals("start", FLL1.get(0).getReturnValue());
         assertEquals(3, FLL1.get(1).getReturnValue());
         assertEquals(4, FLL1.get(2).getReturnValue());
@@ -110,10 +100,8 @@ public class FunctionalLinkedListTest {
 
     @Test
     public void removeTest() {
-        //System.out.println(FLL1.isEmpty());
         assertEquals(ErrorMessage.EMPTY_STRUCTURE, FLL1.remove(0).getError());
-        //assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, FLL1.remove(1).getError());
-        //assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, FLL1.remove(-1).getError());
+
         FLL1.add("stinky");
         FLL1.add("poopie");
         FLL1.add("poos");
@@ -152,25 +140,17 @@ public class FunctionalLinkedListTest {
     @Test
     public void restTest() {
         //testing rest method when list is empty and has more than 1 object in it
-        //assertEquals(ErrorMessage.EMPTY_STRUCTURE, FLL1.rest().getError());
+
         FLL1.add(3);
-        //System.out.println(FLL1.head().getReturnValue());//.get(0).getReturnValue());
         assertEquals(null, FLL1.rest().get(0).getReturnValue());
         FLL1.add("stinky");
-        //System.out.println(FLL1.get(1).getReturnValue());
-        //assertEquals("stinky", FLL1.rest().get(0).getReturnValue());
         FLL1.add("poopie");
-        //System.out.println(FLL1.get(2).getReturnValue());
-        //assertEquals("stinky", FLL1.rest().get(0).getReturnValue());
-        //assertEquals("poopie", FLL1.rest().get(1).getReturnValue());
+        assertEquals("stinky", FLL1.rest().get(0).getReturnValue());
+        assertEquals("poopie", FLL1.rest().get(1).getReturnValue());
         FLL1.add("poos");
-        //System.out.println(FLL1.get(3).getReturnValue());
-        //System.out.println(FLL1.rest().get(0).getReturnValue());//.get(0).getReturnValue());
-        //System.out.println(FLL1.rest().get(1).getReturnValue());
-        //System.out.println(FLL1.rest().get(2).getReturnValue());
         assertEquals("stinky", FLL1.rest().get(0).getReturnValue());
         assertEquals("poopie", FLL1.rest().get(1).getReturnValue());
         assertEquals("poos", FLL1.rest().get(2).getReturnValue());
-        assertEquals(null, FLL1.rest().get(4).getReturnValue());
+        assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, FLL1.rest().get(4).getError());
     }
 }
